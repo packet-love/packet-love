@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Col, Row} from "antd";
+import {Button, Col, Row} from "antd";
 
 
 const MenuItemContainer = styled.div`
@@ -7,8 +7,6 @@ const MenuItemContainer = styled.div`
 `;
 
 const MenuItemBox = styled.div`
-  border-radius: 10px;
-  border: 2px solid lightgray;
 `
 
 const MenuItemText = styled.p`
@@ -21,7 +19,7 @@ const MenuItem: React.FC<MenuItemProps> = ({title, path}) => {
     <div>
       <MenuItemContainer>
         <MenuItemBox>
-          <MenuItemText>{title}</MenuItemText>
+          <Button block>{title}</Button>
         </MenuItemBox>
       </MenuItemContainer>
     </div>
@@ -49,6 +47,12 @@ const HomePage = () => {
           </Col>
           <Col span={12}>
             <MenuItem title={"2. 상대 정보 입력하기"} path={"/"}/>
+          </Col>
+          <Col span={24}>
+            <MenuItem title={"3. 공략법 확인하기"} path={"/"} />
+          </Col>
+          <Col span={24}>
+            <MenuItem title={"3. 공략법 확인하기"} path={"/"} />
           </Col>
         </Row>
       </HomeContainer>
