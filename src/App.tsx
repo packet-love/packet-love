@@ -7,6 +7,7 @@ import AppHeader from "./components/app-header";
 import {
   RecoilRoot
 } from "recoil";
+import Chatgpt from './backend/chatgpt';
 
 const BackgroundContainer = styled.div`
   background-color: hotpink;
