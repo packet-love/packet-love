@@ -4,6 +4,9 @@ import styled from "styled-components";
 import {RouterProvider} from "react-router-dom";
 import routes from "./router/routes";
 import AppHeader from "./components/app-header";
+import {
+  RecoilRoot
+} from "recoil";
 
 const BackgroundContainer = styled.div`
   background-color: hotpink;
@@ -22,14 +25,16 @@ const SafeArea = styled.div`
 `;
 
 const App = () => (
-  <BackgroundContainer>
-    <SafeArea>
-      <React.StrictMode>
-        <AppHeader />
-        <RouterProvider router={routes} />
-      </React.StrictMode>
-    </SafeArea>
-  </BackgroundContainer>
+  <RecoilRoot>
+    <BackgroundContainer>
+      <SafeArea>
+        <React.StrictMode>
+          <AppHeader />
+          <RouterProvider router={routes} />
+        </React.StrictMode>
+      </SafeArea>
+    </BackgroundContainer>
+  </RecoilRoot>
 );
 
 export default App;
