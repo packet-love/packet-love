@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Button, Col, Input, Row} from "antd";
-import {Gender, MBTI} from "../state/states";
+import {Gender, MBTI, MyState} from "../state/states";
+import {useRecoilState} from "recoil";
 
 const MyEditPage = () => {
   const [inputAge, setInputAge] = useState<number | null>(null);
@@ -9,12 +10,28 @@ const MyEditPage = () => {
   const [inputIdol, setInputIdol] = useState<string | null>(null);
   const [inputMbti, setInputMbti] = useState<MBTI | null>(null);
 
+  const [myState, setMyState] = useRecoilState(MyState);
+
   const completeInput = () => {
     console.log(inputAge);
     console.log(inputGender);
     console.log(inputMajor);
     console.log(inputIdol);
     console.log(inputMbti);
+
+    if (!inputAge || !inputGender || !inputMajor || !inputIdol || !inputMbti) {
+      console.log('모든 값을 입력해주세요');
+      return;
+    }
+
+    setMyState({
+      isFilled: true,
+      age: inputAge,
+      gender: inputGender,
+      major: inputMajor,
+      idol: inputIdol,
+      mbti: inputMbti
+    });
   }
 
   return (
