@@ -20,6 +20,7 @@ const MenuItem: React.FC<MenuItemProps> = ({title, path}) => {
 
   return (
     <div>
+      <Button block onClick={() => navigate("/test")}>테스트페이지로 가는 버튼</Button>
       <MenuItemContainer>
         <MenuItemBox>
           <Button block onClick={() => navigate(path)}>{title}</Button>
