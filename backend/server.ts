@@ -1,8 +1,8 @@
 import cors from 'cors';
-import express from 'express';
+import express, { Router } from 'express';
 import compression from 'compression';
 import methodOverride from 'method-override';
-// import chatgptRoute from './chatgpt/route';
+import chatgptRoute from './chatgpt/route';
 
 const app = express();
 const port = 5000;
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride());
 app.use(cors());
-// app.use('/', chatgptRoute);
+app.use('/', chatgptRoute);
 
 app.listen(port, () => {
     console.log(`Server started on port: ${port}`);
