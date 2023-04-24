@@ -1,5 +1,7 @@
 import { OpenAIApi, Configuration } from "openai";
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 
 export class Chatgpt {
     
