@@ -21,7 +21,7 @@ export enum MBTI {
   ISFJ = 'ISFJ',
   ISTP = 'ISTP',
   ISTJ = 'ISTJ',
-  TSFP = 'TSFP',
+  ISFP = 'ISFP',
 };
 
 export interface PersonInfo {

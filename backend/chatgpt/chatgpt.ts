@@ -17,12 +17,12 @@ export class Chatgpt {
 
     }
 
-    createChatCompletion = async(promt: string) => {
+    createChat= async(promt: string) => {
         const response = await this.openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [
                 { role: "user", content: promt },
-                { role: "system", content: "you are a dating coach" }
+                { role: "system", content: "상대방에 대한 정보를 토대로 연애를 시작할 수 있게 코멘트 해줘" }
             ]
         });
 

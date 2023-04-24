@@ -28,4 +28,5 @@ packet-love-frontend.iml
 vcs.xml
 
 # dist
-backend/dist
+backend/dist/
+.idea
