@@ -5,7 +5,7 @@ import methodOverride from 'method-override';
 import chatgptRoute from './chatgpt/route';
 
 const app = express();
-const port = 5000;
+const port = 8000;
 
 app.use(compression());
 app.use(express.json());

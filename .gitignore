@@ -23,10 +23,9 @@ frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
 frontend/.idea
-
-# env file
-#.env
-
+modules.xml
+packet-love-frontend.iml
+vcs.xml
 
 # dist
 backend/dist
