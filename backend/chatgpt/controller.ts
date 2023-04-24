@@ -1,5 +1,16 @@
+import { Chatgpt } from "./chatgpt";
+
 export class ChatgptController {
-    public static create(req, res) : void {
+
+    instance: Chatgpt;
+
+    constructor() {
+        this.instance = new Chatgpt();
+    }
+
+    public static async create(req, res) : Promise<void> {
+        
+
     }   
 }
 
