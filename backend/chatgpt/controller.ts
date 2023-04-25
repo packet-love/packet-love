@@ -13,12 +13,19 @@ export class ChatgptController {
         const myPersonInfo : PersonInfo = req.body.me;
         const targetPersonInfo : PersonInfo = req.body.target;
 
-        const promt = inputMyPersonInfo(myPersonInfo) + inputTargetPersonInfo(targetPersonInfo);
+        const myPromt = inputMyPersonInfo(myPersonInfo);
+        const targetPromt = inputTargetPersonInfo(targetPersonInfo);
+        const totalPromt = myPromt + targetPromt;
 
-        const response = await ChatgptController.instance.createChat(promt);
+        const response = await ChatgptController.instance.createChat(totalPromt);
+
+        const getMyInfo = await ChatgptController.instance.getPersonalInfo(myPromt);
+        console.log(getMyInfo);
+
+        const getTargetInfo = await ChatgptController.instance.getPersonalInfo(targetPromt);
+        console.log(targetPromt);
 
         return await res.send(response);
-
     }
 }
 

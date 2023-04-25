@@ -29,6 +29,18 @@ export class Chatgpt {
         return response.data.choices[0].message.content;
     }
 
+    getPersonalInfo = async(promt: string) => {
+        const response = await this.openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "user", content: promt },
+                { role: "system", content: `정보, 전공, 성격, 취미 및 MBTI 특징을 세 문장으로 정리해서 알려줘. 각각의 정보는 json (ex. { "response" : [ "1. 답변", "2. 답변" ] } ) 안에 담아서 3개 목록을 "1. 답변" 형태로 정리해서 전달해줘.` }
+            ]
+        });
+
+        return response.data.choices[0].message.content;
+    }
+
     // 카톡 대화 분석
     // analyzeConversation = async(file: ) => {
     //
