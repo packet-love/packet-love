@@ -55,4 +55,17 @@ export class Chatgpt {
 
         return response.data.choices[0].message.content;
     }
+
+    // 소개팅 시 대화 및 말투 개선
+    improveSentence = async(promt: string) => {
+        const response = await this.openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "user", content: promt },
+                { role: "system", content: `상대방 정보를 토대로 둘의 관계를 발전시키는 방향의 가장 자연스러운 답변을 추천해줘. 답변은 1개만 줄글 형태로 전달해줘.` }
+            ]
+        });
+
+        return response.data.choices[0].message.content;
+    }
 }

@@ -22,6 +22,15 @@ export enum MBTI {
     ISFP = 'ISFP',
 };
 
+export enum Tone {
+    BRIGHT = '밝은',
+    CHIC = '시크',
+    CUTE = '귀여운',
+    ELEGANT = '우아한',
+    FEMININE = '여성스러운',
+    LOVELY = '사랑스러운',
+}
+
 export interface PersonInfo {
     name: string,
     gender: Gender,
@@ -32,6 +41,7 @@ export interface PersonInfo {
     hobby: string,
 };
 
-// export interface SpecialInfo {
-//
-// }
+export interface KakaoChat {
+    sentence: string,
+    tone: Tone,
+}

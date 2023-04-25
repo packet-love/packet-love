@@ -1,6 +1,6 @@
 import { Chatgpt } from "./chatgpt";
-import { Gender, MBTI, PersonInfo } from "./interfaces";
-import { inputMyPersonInfo, inputTargetPersonInfo } from "../utils";
+import {Gender, KakaoChat, MBTI, PersonInfo, Tone} from "./interfaces";
+import {inputMyPersonInfo, inputTargetPersonInfo, inputTargetSentence} from "../utils";
 
 export class ChatgptController {
     static instance: Chatgpt;
@@ -38,6 +38,13 @@ export class ChatgptController {
             "analysis": analysis.split('\n')
         }
         return await res.send(response);
+    }
+
+    async improvement(req, res) : Promise<void> {
+        const { sentence, tone } : KakaoChat = req.body;
+        const promt = inputTargetSentence(sentence, tone);
+        const response = await ChatgptController.instance.improveSentence(promt);
+        return await res.send({"response" : response });
     }
 }
 
