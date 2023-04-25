@@ -33,8 +33,10 @@ export class ChatgptController {
     async analyze(req, res) : Promise<void> {
         const conversations = req.body.conversations;
 
-        const response = await ChatgptController.instance.analyzeConversation(JSON.stringify(conversations));
-
+        const analysis = await ChatgptController.instance.analyzeConversation(JSON.stringify(conversations));
+        const response = {
+            "analysis": analysis.split('\n')
+        }
         return await res.send(response);
     }
 }
