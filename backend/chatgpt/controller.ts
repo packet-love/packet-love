@@ -17,13 +17,13 @@ export class ChatgptController {
         const targetPromt = inputTargetPersonInfo(targetPersonInfo);
         const totalPromt = myPromt + targetPromt;
 
-        const response = await ChatgptController.instance.createChat(totalPromt);
+        const solutions = await ChatgptController.instance.createChat(totalPromt);
 
         const getMyInfo = await ChatgptController.instance.getPersonalInfo(myPromt);
-        console.log(getMyInfo);
 
         const getTargetInfo = await ChatgptController.instance.getPersonalInfo(targetPromt);
-        console.log(targetPromt);
+
+        const response = { "solutions": solutions, "myInfo": getMyInfo, "targetInfo": getTargetInfo };
 
         return await res.send(response);
     }
