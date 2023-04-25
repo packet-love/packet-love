@@ -18,12 +18,22 @@ export class ChatgptController {
         const totalPromt = myPromt + targetPromt;
 
         const solutions = await ChatgptController.instance.createChat(totalPromt);
-
         const getMyInfo = await ChatgptController.instance.getPersonalInfo(myPromt);
-
         const getTargetInfo = await ChatgptController.instance.getPersonalInfo(targetPromt);
 
-        const response = { "solutions": solutions.split('\n'), "myInfo": getMyInfo.split('\n'), "targetInfo": getTargetInfo.split('\n') };
+        const response = {
+            "solutions": solutions.split('\n'),
+            "myInfo": getMyInfo.split('\n'),
+            "targetInfo": getTargetInfo.split('\n')
+        };
+
+        return await res.send(response);
+    }
+
+    async analyze(req, res) : Promise<void> {
+        const conversations = req.body.conversations;
+
+        const response = await ChatgptController.instance.analyzeConversation(JSON.stringify(conversations));
 
         return await res.send(response);
     }

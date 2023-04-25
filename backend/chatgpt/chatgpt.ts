@@ -17,6 +17,7 @@ export class Chatgpt {
 
     }
 
+    // 공략법 생성
     createChat= async(promt: string) => {
         const response = await this.openai.createChatCompletion({
             model: "gpt-3.5-turbo",
@@ -29,6 +30,7 @@ export class Chatgpt {
         return response.data.choices[0].message.content;
     }
 
+    // 나와 상대방 정보 요약
     getPersonalInfo = async(promt: string) => {
         const response = await this.openai.createChatCompletion({
             model: "gpt-3.5-turbo",
@@ -42,8 +44,15 @@ export class Chatgpt {
     }
 
     // 카톡 대화 분석
-    // analyzeConversation = async(file: ) => {
-    //
-    //
-    // }
+    analyzeConversation = async(promt: string) => {
+        const response = await this.openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "user", content: promt },
+                { role: "system", content: `나와 상대방이 나눈 정보를 토대로 나를 향한 상대방의 호감도 및 마음을 분석해줘. 각각의 정보는 "1. 답변" 형태로 정리해서 3개만 전달해줘. (ex. "1. 답변", "2. 답변" )` }
+            ]
+        });
+
+        return response.data.choices[0].message.content;
+    }
 }
