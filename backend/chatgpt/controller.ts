@@ -23,7 +23,7 @@ export class ChatgptController {
 
         const getTargetInfo = await ChatgptController.instance.getPersonalInfo(targetPromt);
 
-        const response = { "solutions": solutions, "myInfo": getMyInfo, "targetInfo": getTargetInfo };
+        const response = { "solutions": solutions.split('\n'), "myInfo": getMyInfo.split('\n'), "targetInfo": getTargetInfo.split('\n') };
 
         return await res.send(response);
     }

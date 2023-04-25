@@ -22,7 +22,7 @@ export class Chatgpt {
             model: "gpt-3.5-turbo",
             messages: [
                 { role: "user", content: promt },
-                { role: "system", content: `나와 상대방에 대한 정보를 토대로 내가 상대방의 마음을 얻을 수 있는 공략법을 [ "1. 답변", "2. 답변" ] 배열 안에 담아서 5개 목록을 "1. 답변" 형태로 정리해서 전달해줘.` }
+                { role: "system", content: `나와 상대방에 대한 정보를 토대로 내가 상대방의 마음을 얻을 수 있는 공략법을  5개 목록을 숫자 글머리 기호 형태로 정리해서 전달해줘.(ex. "1. 답변", "2. 답변" )` }
             ]
         });
 
@@ -34,7 +34,7 @@ export class Chatgpt {
             model: "gpt-3.5-turbo",
             messages: [
                 { role: "user", content: promt },
-                { role: "system", content: `정보, 전공, 성격, 취미 및 MBTI 특징을 세 문장으로 정리해서 알려줘. 각각의 정보는 배열 안에 담아서, 3개 목록을 "1. 답변" 형태로 정리해서 전달해줘. (ex. [ "1. 답변", "2. 답변" ])` }
+                { role: "system", content: `정보, 전공, 성격, 취미 및 MBTI 특징을 세 문장으로 정리해서 알려줘. 각각의 정보는 "1. 답변" 형태로 정리해서 전달해줘. (ex. "1. 답변", "2. 답변" )` }
             ]
         });
 
