@@ -29,4 +29,9 @@ export interface PersonInfo {
     major: string,
     idol: string,
     mbti: MBTI,
+    hobby: string,
 };
+
+// export interface SpecialInfo {
+//
+// }
