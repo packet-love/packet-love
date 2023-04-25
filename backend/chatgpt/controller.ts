@@ -1,6 +1,6 @@
 import { Chatgpt } from "./chatgpt";
-import {Gender, MBTI, PersonInfo} from "./interfaces";
-import {inputMyPersonInfo, inputTargetPersonInfo} from "../utils";
+import { Gender, MBTI, PersonInfo } from "./interfaces";
+import { inputMyPersonInfo, inputTargetPersonInfo } from "../utils";
 
 export class ChatgptController {
     static instance: Chatgpt;
@@ -10,8 +10,8 @@ export class ChatgptController {
     }
 
     async create(req, res) : Promise<void> {
-        const myPersonInfo : PersonInfo = req.body[0];
-        const targetPersonInfo : PersonInfo = req.body[1];
+        const myPersonInfo : PersonInfo = req.body.me;
+        const targetPersonInfo : PersonInfo = req.body.target;
 
         const promt = inputMyPersonInfo(myPersonInfo) + inputTargetPersonInfo(targetPersonInfo);
 
