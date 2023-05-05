@@ -9,7 +9,7 @@ export class Chatgpt {
 
     constructor() {
         const configuration = new Configuration({
-            organization: "org-G46Elt8wKFzUqNSnEhov5RkQ",
+            organization: "org-kLarpKe29xQprigsqBdWbLHR",
             apiKey: process.env.OPENAI_API_KEY,
         });
 
