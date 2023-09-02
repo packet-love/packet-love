@@ -17,7 +17,7 @@ class ApiClient {
     me: PersonInfo,
     target: PersonInfo,
   ): Promise<GetStrategyResponse> {
-    const res = await axios.post<GetStrategyResponse>("http://3.36.63.46:8000/", {
+    const res = await axios.post<GetStrategyResponse>("http://43.202.53.101:8000/", {
       "me": me,
       "target": target
     });
@@ -28,7 +28,7 @@ class ApiClient {
   async getConversations(
     conversations: any[]
   ): Promise<GetConversations> {
-    const res = await axios.post<GetConversations>("http://3.36.63.46:8000/analyze", {
+    const res = await axios.post<GetConversations>("http://43.202.53.101:8000/analyze", {
       "conversations": conversations
     });
     return res.data;
